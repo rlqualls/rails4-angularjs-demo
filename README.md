@@ -10,5 +10,5 @@
 
 You can access the admin at http://localhost:3000/admin
 
-username: admin@example.com
+username: admin@example.com  
 password: password

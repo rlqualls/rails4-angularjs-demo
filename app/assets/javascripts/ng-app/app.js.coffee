@@ -1,4 +1,4 @@
-app = angular.module('angular-demo', ['restangular', 'ngAnimate', 'ui.router', 'templates'])
+app = angular.module('angular-demo', ['ngAnimate', 'ui.router', 'templates'])
 
 app.config(['$httpProvider', '$stateProvider', '$urlRouterProvider', '$locationProvider', ($httpProvider, $stateProvider, $urlRouterProvider, $locationProvider) ->
   $stateProvider.state('home', {

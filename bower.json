@@ -5,9 +5,7 @@
       "angular": "latest",
       "angular-ui-router": "latest",
       "angular-animate": "latest",
-      "bootstrap-sass-official": "latest",
-      "restangular": "latest",
-      "lodash": "latest"
+      "bootstrap-sass-official": "latest"
     }
   },
   "vendor": {
