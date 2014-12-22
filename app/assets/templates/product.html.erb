@@ -1,0 +1,23 @@
+<h1>{{product.name}}</h1>
+
+<h2><b>Price</b>: {{product.price | currency}}</h2>
+<h2><b>Description</b>: {{product.description}}</h2>
+
+<div class="comments-container" ng-if="product.comments.length > 0">
+  <h3>People are <i>saying</i>...</h3>
+  <ul class="list-group">
+    <li class="list-group-item" 
+      ng-repeat="comment in product.comments">{{comment.text}}
+      <i class="glyphicon glyphicon-remove pull-right"
+                ng-click="removeComment(comment)"></i>
+    </li>
+  </ul>
+</div>
+
+<form id="comment-form" name="commentForm" ng-submit="addComment()">
+  <label class="label">What did you think?</label> 
+  <input type="textarea" name="commentText"
+          ng-model="newComment.text"></input>
+
+  <button type="submit">Comment</button>
+</form>

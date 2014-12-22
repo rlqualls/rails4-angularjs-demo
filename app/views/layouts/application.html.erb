@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AngularjsDemo</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+  <base href="/">
+</head>
+<body ng-app="angular-demo">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Rails 4 Angular Demo</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div ui-view>
+      <%= yield %>
+    </div>
+  </div>
+
+</body>
+</html>

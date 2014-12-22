@@ -1,0 +1,71 @@
+<h1>Products</h1>
+<hr>
+<form name="productForm" novalidate ng-submit="addProduct()">
+  <div class="form-group">
+    <input type="text" class="form-control focus" name="name"
+        placeholder="Name" autocomplete="off" required
+        ng-model="newProduct.name"
+        ng-minlength="3"
+        ng-maxlength="20"
+        ng-class="{'has-error': productForm.name.$invalid
+          && productForm.name.$dirty}">
+    <input type="text" class="form-control focus" name="price"
+        placeholder="Price" autocomplete="off" required
+        ng-model="newProduct.price"
+        ng-pattern="/^[0-9]{1,7}(\.[0-9]{0,2})?$/"
+        ng-class="{'has-error': productForm.price.$invalid
+          && productForm.price.$dirty}">
+    <input type="text" class="form-control focus" name="description"
+        placeholder="Description" autocomplete="off" required
+        ng-model="newProduct.description"
+        ng-minlength="10"
+        ng-maxlength="80"
+        ng-class="{'has-error': productForm.description.$invalid
+          && productForm.description.$dirty}">
+
+    <span class="has-error control-label" ng-show="
+        productForm.name.$error.required && productForm.name.$dirty">
+      Name is required.
+    </span>
+    <span class="has-error control-label" ng-show="
+        productForm.name.$error.minlength && productForm.name.$dirty">
+      Name needs to be at least 3 characters.
+    </span>
+    <span class="has-error control-label" ng-show="
+        productForm.name.$error.maxlength && productForm.name.$dirty">
+      Name cannot be more than 20 characters.
+    </span>
+
+    <span class="has-error control-label" ng-show="
+        productForm.price.$error.required && productForm.price.$dirty">
+      Price is required.
+    </span>
+    <span class="has-error control-label" ng-show="
+        productForm.price.$error.pattern && productForm.price.$dirty">
+      Price must have no more than 2 decimal places.
+    </span>
+
+    <span class="has-error control-label" ng-show="
+        productForm.description.$error.required && productForm.description.$dirty">
+      Description is required.
+    </span>
+    <span class="has-error control-label" ng-show="
+        productForm.description.$error.minlength && productForm.description.$dirty">
+      Description needs to be at least 10 characters.
+    </span>
+    <span class="has-error control-label" ng-show="
+        productForm.description.$error.maxlength && productForm.description.$dirty">
+      Description cannot be more than 80 characters.
+    </span>
+
+  </div>
+  <button class="btn btn-default" ng-disabled="productForm.$invalid">Add</button>
+</form>
+<hr>
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="product in products">
+    <a href="/products/{{product.id}}">{{product.name}}</a> {{product.price | currency}} {{product.description}}
+    <i class="glyphicon glyphicon-remove pull-right"
+        ng-click="removeProduct(product)"></i>
+    </li>
+</ul>
