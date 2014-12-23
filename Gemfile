@@ -32,4 +32,5 @@ gem "active_model_serializers"
 group :development do
   gem 'better_errors'
   gem 'spring'
+  gem 'jasmine-rails'
 end

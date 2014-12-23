@@ -8,8 +8,8 @@ app.controller('IndexCtrl', ($scope, $state, Product) ->
   )
 
   $scope.addProduct = ->
-    Product.create($scope.newProduct).success( (result) ->
-      $scope.products.push(result)
+    Product.create($scope.newProduct).success( (product) ->
+      $scope.products.push(product)
       $scope.newProduct = {}
       $scope.productForm.$setPristine(true)
     )
